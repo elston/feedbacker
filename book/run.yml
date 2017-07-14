@@ -22,8 +22,8 @@ services:
         - PYTHONPATH=/${PROJECT}
         # ...
       volumes:
-        - ../../image/src:/${PROJECT}
-        - ../../image/runserv.sh:/usr/local/bin/runserv.sh
-        - ../../image/data:/data
+        - ../image/src:/${PROJECT}
+        - ../image/runserv.sh:/usr/local/bin/runserv.sh
+        - ../image/data:/data
       # .............................................        
       command: /bin/bash
