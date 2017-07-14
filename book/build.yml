@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+
+  frontface:
+    build:
+      context: ../../images
+      dockerfile: Dockerfile
+    network_mode: "host" 
