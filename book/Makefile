@@ -1,5 +1,5 @@
 # ...
-export PROJECT = commenter
+export PROJECT = feedbacker
 
 # target:
 # target: all - Default target. Does nothing
@@ -25,8 +25,23 @@ build_frontface:
 	@docker-compose \
 		-p $(PROJECT) \
 		-f build.yml \
-		build storage
+		build \
+		frontface
 
+
+# target:
+# target: ===== bootstrap === - ============================
+
+
+# target: bootstrap_frontface - bootstrap frontface contaner
+.PHONY: bootstrap_frontface
+bootstrap_frontface:
+	@docker-compose \
+		-p $(PROJECT) \
+		-f bootstrap.yml \
+		run \
+		--rm \
+		frontface
 
 
 # target:

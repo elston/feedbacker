@@ -1,0 +1,20 @@
+version: '3'
+
+# ---------------------
+services:
+
+  # ..1. frontface
+  frontface:
+    image: ${PROJECT}_frontface
+    network_mode: "host" 
+    environment:
+      - PROJECT=frontface
+      - WORKON_HOME=/frontface/.env
+    volumes:
+      - ../image/src:/frontface
+      - ../image/bootstrap.sh:/usr/local/bin/bootstrap.sh
+      # ...
+      - ../image/requirements/dev.txt:/tmp/requirements.txt
+    # ..................................      
+    command: /usr/local/bin/bootstrap.sh
+

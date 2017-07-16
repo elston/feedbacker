@@ -14,6 +14,13 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
     && dpkg-reconfigure -f noninteractive tzdata
 
 # ...    
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    make \
+    gcc \
+    linux-libc-dev \
+    libc6-dev
+
+#...
 RUN pip install --upgrade \
     pip \
     virtualenv \

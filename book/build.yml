@@ -1,9 +1,11 @@
 version: '3'
 
+# ---------------------     
 services:
 
+  # ..1. frontface
   frontface:
     build:
-      context: ../../images
+      context: ../image
       dockerfile: Dockerfile
     network_mode: "host" 

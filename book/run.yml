@@ -1,12 +1,14 @@
 version: '3'
 
-networks:
 # ---------------------
+networks:
+  # 1. netmain
   netmain:
     driver: bridge
-   
+
+# ---------------------     
 services:
-# ---------------------  
+  # 1. frontface
   frontface:
       image: ${PROJECT}_frontface
       tty: true      
@@ -17,13 +19,15 @@ services:
       networks:
         - netmain
       environment:
-        - PROJECT=${PROJECT}
-        - WORKON_HOME=/${PROJECT}/.env
-        - PYTHONPATH=/${PROJECT}
-        # ...
+        - PROJECT=frontface
+        - WORKON_HOME=/frontface/.env
+        - PYTHONPATH=/frontface
+        # ..
+        - CONFIGURATION=dev
+        - HOST=localhost  
+        - PORT=8000
       volumes:
-        - ../image/src:/${PROJECT}
+        - ../image/src:/frontface
         - ../image/runserv.sh:/usr/local/bin/runserv.sh
-        - ../image/data:/data
       # .............................................        
       command: /bin/bash
