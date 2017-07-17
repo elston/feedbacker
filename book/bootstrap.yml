@@ -11,10 +11,10 @@ services:
       - PROJECT=frontface
       - WORKON_HOME=/frontface/.env
     volumes:
-      - ../image/src:/frontface
-      - ../image/bootstrap.sh:/usr/local/bin/bootstrap.sh
+      - ../images/frontface/src:/frontface
+      - ../images/frontface/bootstrap.sh:/usr/local/bin/bootstrap.sh
       # ...
-      - ../image/requirements/dev.txt:/tmp/requirements.txt
+      - ../images/frontface/requirements/dev.txt:/tmp/requirements.txt
     # ..................................      
     command: /usr/local/bin/bootstrap.sh
 

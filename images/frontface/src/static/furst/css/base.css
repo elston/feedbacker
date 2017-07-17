@@ -1,0 +1,64 @@
+/*...*/
+@font-face {
+  font-family: oswald-reg;
+  src: url(../fonts/Oswald-Regular.ttf);
+}
+
+/*..*/
+@font-face {
+  font-family: oswald-demi;
+  src: url(../fonts/Oswald-DemiBold.ttf);
+}
+
+body {
+  font-family: oswald-reg;
+  color: #333332;;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    margin:0;
+}
+
+p {
+  line-height: 1.5;
+  margin: 30px 0;
+    font-family: verdana;
+}
+
+p a {
+  text-decoration: underline;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: oswald-demi;
+  font-weight: 400;
+}
+
+h5 {
+    color: #fff !important;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-family: oswald-reg;
+}
+
+/*...*/
+a {
+  color: #404040;
+}
+a:hover,
+a:focus {
+    color: #0085a1;
+    text-decoration: none;
+}
+
+/*...*/
+blockquote {
+  color: #808080;
+  font-style: italic;
+}
+
+/*...*/
+.__iconspacer {
+  padding-right: 5px; }

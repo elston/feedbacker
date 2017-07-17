@@ -1,0 +1,27 @@
+/*
+*  box
+*/
+.dialog-box {
+    z-index: 9999;
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 30%;
+    right: 25%;
+    width: 40%;
+    height: auto;
+    overflow: auto;
+    /**/
+    background-color: #e4e5e7;
+    padding: 35px;
+}
+
+.dialog-box p{
+    font-family: oswald-reg;    
+    text-align: center;    
+}
+
+.dialog-box .row{
+    text-align: center;
+}
+

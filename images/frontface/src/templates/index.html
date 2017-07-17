@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html><head>
+<!--  -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="NONE,NOARCHIVE"/>   
+<title>FeedBacker</title>
+
+<!-- favicon -->
+<link href="/static/favicon.ico" rel="icon" type="image/png"/>
+<!-- stylesheet -->
+<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/static/awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- .... -->
+<link href="/static/furst/css/base.css"             rel="stylesheet" type="text/css">       
+<link href="/static/furst/css/message.css"          rel="stylesheet" type="text/css">   
+<link href="/static/furst/css/sidebar.css"          rel="stylesheet" type="text/css">
+<link href="/static/furst/css/content.css"          rel="stylesheet" type="text/css">
+<link href="/static/furst/css/footer.css"           rel="stylesheet" type="text/css">
+<link href="/static/furst/css/shdowing.css"         rel="stylesheet" type="text/css">
+<!-- ... -->
+<link href="/static/furst/css/toolbox.css"          rel="stylesheet" type="text/css">    
+<link href="/static/furst/css/list.css"             rel="stylesheet" type="text/css">        
+<link href="/static/furst/css/dialog.css"           rel="stylesheet" type="text/css">
+<link href="/static/furst/css/form.css"             rel="stylesheet" type="text/css">
+
+<!--  -->
+</head><body>
+<!--  -->
+
+<!-- messages -->
+<div id="message-wrapper">
+<!--     <div class="alert alert-danger alert-message" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        dsfgsdfgsdfs
+    </div> -->
+</div>
+
+<!-- sidebar -->
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+            <a href="#">F<span>ee</span>dB<span>ac</span>ker</a>
+        </li>
+        <li class="active">
+            <a href="#">Отзывы</a>
+        </li>
+        <li>
+            <a href="/report">Отчет</a>
+        </li>
+    </ul>
+</div>
+
+<!-- content -->
+<div id="content-wrapper">     
+
+    <div id="toolbox" >
+        <button id="toolbox__create-btn" type="button" class="btn btn-primary">
+            <span class="fa fa-plus __iconspacer"></span>
+            Добавить
+        </button>
+        &nbsp;
+        <button id="toolbox__remove-btn" type="button" class="btn btn-danger">
+            <span class="fa fa-minus __iconspacer"></span>
+            Удалить
+        </button>
+        &nbsp;        
+    </div>
+
+    <div id="list">
+        <div id="empty-list"> 
+            There are no any records
+        </div>
+    </div>        
+
+    <!-- mask -->
+    <div id="content-mask" class="mask-shdowing">
+        <div id="mask-shdowing-loader">
+        </div>
+    </div>
+
+</div>
+
+<!-- footer -->
+<div id="footer-wrapper">
+    FeedBacker (c) 2017 by Hamster Elements ltd.
+</div>  
+
+<!-- hidden -->
+<!-- .. -->
+<div id="shdowing" class="shdowing"></div>
+<!-- ... -->
+<div id="create-feedback-form__box" class="panel panel-primary form-box">
+    <div id="create-feedback-form__title" class="form-title">
+        <p id="create-feedback-form__heading" class="form-heading"></p>
+        <div class="panel-heading text-center">
+            <h1 class="panel-title text-center">Новый отзыв</h1>
+            <div id="create-feedback-form__close-btn" class="close-btn">
+                <i class="fa fa-times"></i>
+            </div>
+        </div>
+    </div>
+    <div>
+        <form id="create-feedback-form" method="post">
+            <div class="col-lg-12 col-md-12 col-sm-12 form-body">
+                <!-- .. -->
+                <div class="form-group">
+                    <div id="id_lastname" class="input input-primary text-left form-row">
+                        <label for="id_lastname">Фамилия</label>
+                        <input type="text" name="lastname" required autofocus id="id_lastname">
+                    </div> 
+                    <div id="id_firstname" class="input input-primary text-left form-row">
+                        <label for="id_firstname">Имя</label>
+                        <input type="text" name="firstname" required id="id_firstname">
+                    </div>  
+                    <div id="id_midname" class="input input-primary text-left form-row">
+                        <label for="id_midname">Отчество</label>
+                        <input type="text" name="midname" required id="id_midname">
+                    </div>
+                    <div id="id_region" class="input input-primary text-left form-row">
+                        <label for="id_region">Регион</label>
+                        <input type="text" name="region" required id="id_region">
+                    </div>
+                    <div id="id_sity" class="input input-primary text-left form-row">
+                        <label for="id_sity">Город</label>
+                        <input type="text" name="sity" required id="id_sity">
+                    </div>
+                    <div id="id_phone" class="input input-primary text-left form-row">
+                        <label for="id_phone">Контактный телефон</label>
+                        <input type="text" name="phone" required id="id_phone">
+                    </div>
+                    <div id="id_email" class="input input-primary text-left form-row">
+                        <label for="id_email">Email</label>
+                        <input type="text" name="email" required id="id_email">
+                    </div>
+                    <div id="id_text" class="textarea textarea-primary text-left form-row">
+                        <label for="id_text">Комментарий</label>
+                        <textarea type="text" name="text" required id="id_text" rows="5"></textarea>
+                    </div>                    
+                </div>
+                <!-- ... -->
+                <div class="form-group">
+                    <input class="acc-btn" type="submit" value="Сохранить">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!-- scripts -->
+<script src="/static/jquery/jquery.js"></script>
+<script src="/static/bootstrap/bootstrap.min.js"></script>
+<!-- ... -->
+<script src="/static/furst/rpc.js"></script>
+<script src="/static/furst/templates.js"></script>    
+<script src="/static/furst/alerts.js"></script>        
+<script src="/static/furst/dialog.js"></script>
+<!-- ... -->
+<script src="/methods"></script>       
+<script src="/static/furst/form.js"></script>
+<script src="/static/furst/list.js"></script>
+<script src="/static/furst/toolbox.js"></script>
+<script src="/static/furst/mask.js"></script>
+<!-- ... -->
+<!-- <script src="/static/index/init.js' %}"></script>       -->
+
+<!--  -->
+</body>

@@ -2,15 +2,16 @@
 # -*- coding: utf-8 -*-
 
 # ..
-import argparse
+import logging, argparse
 
 # ...
-import yask
+import yask, config, urls
+
 app = yask.App()
-
 # ...
-import config
 config.init(app)
+app.init_logger()
+urls.init(app)
 
 # ...
 if __name__ == "__main__":
@@ -22,7 +23,7 @@ if __name__ == "__main__":
                         dest='host',
                         default=app.config.HOST,
                         help='Default hostname')
-    # ..
+    # ...
     parser.add_argument('--port', 
                         dest='port',
                         type=int,

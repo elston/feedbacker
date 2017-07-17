@@ -2,32 +2,54 @@ version: '3'
 
 # ---------------------
 networks:
+
   # 1. netmain
   netmain:
     driver: bridge
 
 # ---------------------     
 services:
+
   # 1. frontface
   frontface:
-      image: ${PROJECT}_frontface
-      tty: true      
-      expose:
-        - "8000"    
-      ports:
-        - "8000:8000"
-      networks:
-        - netmain
-      environment:
-        - PROJECT=frontface
-        - WORKON_HOME=/frontface/.env
-        - PYTHONPATH=/frontface
-        # ..
-        - CONFIGURATION=dev
-        - HOST=localhost  
-        - PORT=8000
-      volumes:
-        - ../image/src:/frontface
-        - ../image/runserv.sh:/usr/local/bin/runserv.sh
-      # .............................................        
-      command: /bin/bash
+    image: ${PROJECT}_frontface
+    tty: true
+    expose:
+      - "8000"    
+    ports:
+      - "8000:8000"
+    networks:
+      - netmain
+    environment:
+      - PROJECT=frontface
+      - WORKON_HOME=/frontface/.env
+      - PYTHONPATH=/frontface
+      # ..
+      - CONFIGURATION=dev
+      - HOST=0.0.0.0  
+      - PORT=8000
+    volumes:
+      - ../images/frontface/src:/frontface
+      - ../images/frontface/runserv.sh:/usr/local/bin/runserv.sh
+    # .............................................        
+    command: /bin/bash
+
+  # ..2. router
+  router:
+    image: ${PROJECT}_router
+    tty: true    
+    expose:
+      - "80"    
+    ports:
+      - "80:80"
+    networks:
+      - netmain    
+    # depends_on:
+    #   - frontface      
+    external_links:
+      - ${PROJECT}_frontface_1:frontface
+    volumes:
+      - ../images/router/nginx.conf:/router/deploy/nginx.conf
+      - ../images/router/runserv.sh:/usr/local/bin/runserv.sh      
+      - ../images/frontface/src:/frontface      
+    command: /bin/sh

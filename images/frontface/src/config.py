@@ -40,9 +40,9 @@ class BaseConfig(object):
         BASE_DIR, '.data/db.sqlite3'
     )
 
-    # ....настройки реквизитов
     # .. server
     # =====================================
+    NAME = get_env_variable('PROJECT')
     HOST = get_env_variable('HOST')
     PORT = int(get_env_variable('PORT'))
 

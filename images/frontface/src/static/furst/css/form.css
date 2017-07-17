@@ -1,0 +1,107 @@
+/*
+*  box
+*/
+.form-box {
+    z-index: 999;
+    /*display: none;*/
+    position: fixed;
+    top: 5%;
+    left: 30%;
+    right: 25%;
+    width: 40%;
+    height: auto;
+    background-color: #fff;
+    overflow: auto;
+}
+
+
+/*
+*   title
+*/
+.form-title {
+    background-color: #2c8fb9;
+    height: 50px;
+    color: #fff;
+    /*text-align: center;*/
+    /*color:#383838;*/
+    font-family:'helvetica_regular';
+    border-left:1px solid #9f9f9f;
+    border-right:1px solid #9f9f9f;
+    border-bottom:1px solid #9f9f9f;
+}
+
+.form-title .form-heading {
+    margin:0px; 
+    color:#383838; 
+    float:left;
+    line-height:36px;
+    padding-left:20px;
+}
+
+.form-title .panel-heading{
+    height: 100%;
+    padding: 10px 15px;
+}
+
+.form-title .panel-heading .panel-title{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 24px !important;
+    text-transform: uppercase;
+    display: inline;
+    float: none !important;
+}
+
+.form-title .panel-heading .close-btn{
+    font-size: 22px;
+    float:right;
+    cursor: pointer;
+    padding-right: 6px; 
+    padding-left: 6px;   
+
+}
+.form-title .panel-heading .close-btn:hover{
+    background: rgba(255,255,255,0.2);
+    border-radius: 4px;    
+}
+/*
+* body
+*/
+.form-body{
+    background-color: #e4e5e7;
+    padding: 5px 15px 5px 15px;
+    font-family: oswald-reg;
+}
+.form-body label{
+    display: block;
+}
+.form-body input, 
+.form-body textarea, 
+.form-body select{
+    width: 100%;
+    padding: 5px 5px;
+}
+.form-body .acc-btn{
+
+    /*decoration*/
+    color: #fff;
+    background-color: #2c8fb9;
+    border: 0;
+    border-radius: 4px;      
+
+    text-transform: uppercase;
+    font-size: 20px;
+    font-family: oswald-reg;
+
+    /*position*/
+    width: 100%;
+    padding: 12px 10px;
+}
+
+.form-body .acc-btn:hover{
+    background: rgba(44, 143, 185, 0.8);
+}
+
+.form-body .form-group .form-row{
+    margin-top: 5px;
+}

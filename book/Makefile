@@ -15,6 +15,13 @@ help:
 
 
 
+# ========= pull ==============
+pull:
+	@echo "---> pull python:2.7-slim"
+	@docker pull python:2.7-slim
+	# ...
+	@echo "---> pull nginx:1.12.1-alpine"	
+	@docker pull nginx:1.12.1-alpine
 
 # target:
 # target: ===== build ======= - ============================
@@ -27,6 +34,16 @@ build_frontface:
 		-f build.yml \
 		build \
 		frontface
+
+
+# target: build_router - build router image
+.PHONY: build_router
+build_router:
+	@docker-compose \
+		-p $(PROJECT) \
+		-f build.yml \
+		build \
+		router		
 
 
 # target:
@@ -59,6 +76,20 @@ shell_frontface:
 		--name $(PROJECT)_frontface_1 \
 		frontface \
 		/bin/bash
+
+
+# target: shell_router - shell router container
+.PHONY: shell_router
+shell_router:
+	@docker-compose \
+		-p $(PROJECT) \
+		-f run.yml \
+		run \
+		--rm \
+		--service-ports \
+		--name $(PROJECT)_router_1 \
+		router \
+		/bin/sh		
 
 
 
