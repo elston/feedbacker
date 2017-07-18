@@ -3,7 +3,7 @@
 # Feedback
 class FeedbackActions(object):
     # ...
-    def create(self,data):
+    def create(self, data):
         # ..
         return {
             'success':True,

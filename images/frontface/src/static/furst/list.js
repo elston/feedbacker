@@ -13,13 +13,15 @@ Cls.List = $.inherit($.util.Observable, {
         this.list = $('#' + this.list_id);
         // ..
         Cls.List.superclass.constructor.call(this, config);
-        // ..
+
+        // ..onclick for all record
         var list = this.list.children();
         for (var i = 0; i < list.length; i++) {
             var item = $(list[i]);
             item.on('click',this,this.onRecord);            
         };
-        // ..
+
+        // ..activate first record
         if (list.length > 0){
             var record = $(list[0]);
             this.activateRecord(record);

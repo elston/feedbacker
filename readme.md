@@ -1,12 +1,18 @@
-commenter
+FeedBacker
 ========================
-Test task for Thunder inc. 
+
+Thunder inc. test task :))
+
+Framework without frameworks!!!! .. ;) .. it looks mysterious... isn't it? :)
+
+Naked python and javascript! .. feckly ))
 
 Technology
 ----------------
 - docker
 - sqlite
 - python
+- javascript
 
 
 Getting Started with Docker and Docker Compose for Local Development

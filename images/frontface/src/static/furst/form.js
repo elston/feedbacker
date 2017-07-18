@@ -22,10 +22,8 @@ Cls.Form = $.inherit($.util.Observable, {
         // ..
         Cls.Form.superclass.constructor.call(this, config);
         // ..
-        this.form_el
-            .on('submit',this,this.submit);
-        this.btnClose            
-            .on('click',this,this.close);
+        this.form_el.on('submit',this,this.submit);
+        this.btnClose.on('click',this,this.close);
     },
     
     open: function (){
@@ -37,13 +35,13 @@ Cls.Form = $.inherit($.util.Observable, {
     close: function (e){
         var me = this;                    
         if ((e)&&(e.data)){
-            me = e.data;};
+            me = e.data;
+        };
         // ...
         me.shdowing_el.css('display','none');
         me.box_el.css('display','none');
         // ...
-        me.removeErrLabel()
-            .reset();        
+        me.removeErrLabel().reset();        
     },
 
     submit:function (e) {
@@ -51,12 +49,7 @@ Cls.Form = $.inherit($.util.Observable, {
         var data = me.form_el.serialize();        
         // ..
         me.removeErrLabel();
-        me.action(
-            data,
-            me.success, 
-            me.error, 
-            me
-        );
+        me.action(data, me.success, me.error, me);
         return false;
     },
 
@@ -67,9 +60,8 @@ Cls.Form = $.inherit($.util.Observable, {
 
     success:function (result,provider) {
         // ...
-        App.Alerts.show(result.message,'success');        
-        this.reset()
-            .close();
+        App.Alerts.show(result.message,'success');
+        this.reset().close();
     },
 
     error:function (result, request) {

@@ -253,6 +253,8 @@ jQuery.inherit = function(){
 
 jQuery.util = jQuery.util || {};
 
+// ..
+// ========================================
 jQuery.util.Event = function(obj, name){
     this.name = name;
     this.obj = obj;
@@ -351,6 +353,8 @@ jQuery.util.Event.prototype = {
     }
 };
 
+// ....
+// ========================================
 jQuery.util.Observable = function(){
 
     var me = this, e = me.events;
@@ -482,6 +486,7 @@ jQuery.util.DelayedTask = function(fn, scope, args){
 };
 
 /* jQuery.Rpc */
+// ========================================
 (function($){
  
     $.Rpc = $.inherit(jQuery.util.Observable, {
@@ -900,6 +905,7 @@ jQuery.util.DelayedTask = function(fn, scope, args){
                 this.fireEvent('call', this, t);
             }
         },
+        
         createMethod : function(c, m){
             var f = function(){
                 this.doCall(c, m, Array.prototype.slice.call(arguments, 0));

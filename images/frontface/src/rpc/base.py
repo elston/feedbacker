@@ -54,6 +54,16 @@ class RpcRouter(object):
 
     def api(self, app, environ, resp):
         # ..
+        body= ''
+        try:
+            length= int(environ.get('CONTENT_LENGTH', '0'))
+        except ValueError:
+            length = 0
+        # ...
+        if length != 0:
+            body = environ['wsgi.input'].read(length)
+        # ...
+        import ipdb;ipdb.set_trace()
         obj = json.dumps({})
         return self.response(obj, resp)
 

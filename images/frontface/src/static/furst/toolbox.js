@@ -1,5 +1,5 @@
-$.ns('Cls.ToolboxList');
-Cls.ToolboxList = $.inherit($.util.Observable, {
+$.ns('Cls.Toolbox');
+Cls.Toolbox = $.inherit($.util.Observable, {
     // ..
     toolbox_id:'',
     form:null,
@@ -19,7 +19,7 @@ Cls.ToolboxList = $.inherit($.util.Observable, {
         this.btnRemove = $("#"+this.toolbox_id+"__"+this.btn_remove_id);
 
         // ..
-        Cls.ToolboxList.superclass.constructor.call(this, config);
+        Cls.Toolbox.superclass.constructor.call(this, config);
         // ..
         this.btnCreate.on('click',this,this.create);            
         this.btnRemove.on('click',this,this.remove);                    
@@ -35,9 +35,13 @@ Cls.ToolboxList = $.inherit($.util.Observable, {
 
     remove:function (e) {
         var me  = e.data;
-        var currentrecord = me.list.getCurrentRecord();
-        if (currentrecord){
-            console.log(currentrecord.attr('data-id'));
+        if (me.list){
+            var currentrecord = me.list.getCurrentRecord();
+            if (currentrecord){
+                console.log(currentrecord.attr('data-id'));
+            };
+        }else{
+            App.Alerts.show('No records','danger');
         };
     },
 
