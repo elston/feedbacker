@@ -5,7 +5,7 @@ Thunder inc. test task :))
 
 Framework without frameworks!!!! .. ;) .. it looks mysterious... isn't it? :)
 
-Naked python and javascript! .. feckly ))
+Pure python and javascript! .. feckly ))
 
 Technology
 ----------------
@@ -14,6 +14,16 @@ Technology
 - python
 - javascript
 
+Features
+--------
+
+* Only over HTTP
+
+* Only ExtJs-JSON-RPC compliant
+
+* Single page appliaction
+
+* Python 2 supported (tested Python 2.7.13)
 
 Getting Started with Docker and Docker Compose for Local Development
 --------------------------------------------------------------------
