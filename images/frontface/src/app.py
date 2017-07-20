@@ -5,13 +5,14 @@
 import logging, argparse
 
 # ...
-import yask, config, urls
+import yask, config, urls, models
 
 app = yask.App()
 # ...
 config.init(app)
 app.init_logger()
 urls.init(app)
+models.init(app)
 
 # ...
 if __name__ == "__main__":

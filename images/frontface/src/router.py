@@ -3,8 +3,7 @@
 from rpc import RpcRouter
 
 # ...
-class Router(RpcRouter): pass
-router = Router()
+router = RpcRouter()
 
 # Feedback
 from actions import FeedbackActions

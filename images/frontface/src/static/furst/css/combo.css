@@ -1,0 +1,15 @@
+
+.form-body .form-group .input-group .dropdown-toggle:hover{
+    cursor: pointer;
+    background: rgba(200,200,200,0.5);
+} 
+
+.form-body .form-group ul.dropdown-menu{
+    top: 34px; 
+    left: 0px; 
+    display: none;
+} 
+
+.form-body .form-group ul.dropdown-menu li .loading-label {
+    padding-left: 5px;
+} 

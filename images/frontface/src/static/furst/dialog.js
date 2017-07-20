@@ -9,8 +9,8 @@ Cls.Dialog = $.inherit($.util.Observable, {
         // ...
         this.dialog_el      = $("#"+this.dialog_id);
         this.shdowing_el    = $("#shdowing");
-        this.box_el         = $('#'+this.dialog_id+'_box');
-        this.btnClose       = $('#'+this.dialog_id+'__close-btn');        
+        this.box_el         = $('#'+this.dialog_id+'__'+'box');
+        this.btnClose       = $('#'+this.dialog_id+'__'+'close-btn');        
         // ..
         Cls.Dialog.superclass.constructor.call(this, config);
         // ..

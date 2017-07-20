@@ -21,10 +21,10 @@ $(function($){
         list:App.FeedbackList,
     });
 
-    // // ....
-    // $.ns('App.FeedbackListMask');
-    // App.FeedbackListMask = new Cls.Mask({
-    //     mask_id:'feedback-list-mask',
-    // });    
+    // ....
+    $.ns('App.RegionCombo');
+    App.RegionCombo = new Cls.Combo({
+        combo_id:'field-region',
+    });    
 
 });

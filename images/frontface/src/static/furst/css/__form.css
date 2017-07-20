@@ -6,9 +6,9 @@
     display: none;
     position: fixed;
     top: 5%;
-    left: 25%;
+    left: 30%;
     right: 25%;
-    width: 50%;
+    width: 40%;
     height: auto;
     background-color: #fff;
     overflow: auto;
@@ -79,22 +79,20 @@
     /*font-family:'helvetica_regular';    */
 }
 
-.form-body .form-group {
-    margin-bottom: 5px;
+.form-body .form-group .form-row{
+    margin-top: 5px;
 }
 
 .form-body label{
     display: block;
 }
 
-/*
 .form-body input, 
 .form-body textarea, 
 .form-body select{
     width: 100%;
     padding: 5px 5px;
 }
-*/
 
 
 /*
@@ -103,12 +101,9 @@
 
 .form-body .submit-btn-group {
     text-align: right;
-    margin-top: 10px;    
 }
 .form-body .submit-btn-group input{
     font-family: oswald-reg;
     /*font-size: 16px;*/
     width: auto;    
-    padding: 5px 15px;    
 }
-

@@ -25,7 +25,6 @@
 <link href="/static/furst/css/list.css"             rel="stylesheet" type="text/css">        
 <link href="/static/furst/css/dialog.css"           rel="stylesheet" type="text/css">
 <link href="/static/furst/css/form.css"             rel="stylesheet" type="text/css">
-<link href="/static/furst/css/combo.css"            rel="stylesheet" type="text/css">
 
 <!--  -->
 </head><body>
@@ -111,52 +110,59 @@
             <div class="col-lg-12 col-md-12 col-sm-12 form-body">
                 <!-- .. -->
                 <div class="form-group">
-                    <label for="id_lastname" class="control-label">Фамилия</label>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <input type="text" name="lastname" required autofocus id="id_lastname" class="form-control">
-                        </div>
+                    <div id="id_lastname" class="input input-primary text-left form-row">
+                        <label for="id_lastname">Фамилия</label>
+                        <input type="text" name="lastname" required autofocus id="id_lastname">
+                    </div> 
+                </div>
+                <div class="form-group">
+                    <div id="id_firstname" class="input input-primary text-left form-row">
+                        <label for="id_firstname">Имя</label>
+                        <input type="text" name="firstname" required id="id_firstname">
+                    </div>  
+                </div>
+                <div class="form-group">                
+                    <div id="id_midname" class="input input-primary text-left form-row">
+                        <label for="id_midname">Отчество</label>
+                        <input type="text" name="midname" id="id_midname">
+                    </div>
+                </div>
+                <div class="form-group">                
+                    <div id="id_region" class="input input-primary text-left form-row">
+                        <label for="id_region">Регион</label>
+                        <input type="text" name="region" id="id_region">
+                    </div>
+                </div>
+                <div class="form-group">                
+                    <div id="id_sity" class="input input-primary text-left form-row">
+                        <label for="id_sity">Город</label>
+                        <input type="text" name="sity" id="id_sity">
+                    </div>
+                </div>
+                <div class="form-group has-feedback has-error">
+                    <div id="id_phone" class="input input-primary text-left form-row">
+                        <label for="id_phone">Контактный телефон</label>
+                        <input type="text" name="phone" id="id_phone">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="id_firstname" class="control-label">Имя</label>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <input type="text" name="firstname" required id="id_firstname" class="form-control">
-                        </div>
+                    <div id="id_email" class="input input-primary text-left form-row">
+                        <label for="id_email">Email</label>
+                        <input type="text" name="email" id="id_email">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="id_midname" class="control-label">Отчество</label>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <input type="text" name="midname" id="id_midname" class="form-control">
-                        </div>
-                    </div>
+                <div class="form-group">                
+                    <div id="id_text" class="textarea textarea-primary text-left form-row">
+                        <label for="id_text">Комментарий</label>
+                        <textarea type="text" name="text" id="id_text" rows="5"></textarea>
+                    </div>                    
                 </div>
-                <div class="form-group">
-                    <label for="id_region" class="control-label">Регион</label>
-                    <div class="row">
-                        <div class="col-xs-10">
-                            <div id="field-region__el" class="input-group">
-                                <input id="field-region__field" type="text" autocomplete="off" placeholder="Choose a region" class="form-control" name="region" id="id_region">
-                                <ul id="field-region__menu" class="typeahead typeahead-long dropdown-menu">
-                                    <li data-value="">
-                                        &nbsp;
-                                        <span class="fa fa-spinner fa-spin fa-fw"></span>
-                                        <span class="loading-label">Loading...</span>
-                                    </li>
-                                </ul>
-                                <span id="field-region__botton" class="input-group-addon dropdown-toggle" data-dropdown="dropdown"> 
-                                    <span class="caret"></span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>                
-
                 <!-- ... -->
                 <div class="form-group submit-btn-group">
+<!--                     <botton type="submit" value="Сохранить" class="btn btn-primary btn-md">
+                        <span class="fa fa-thumbs-o-up __iconspacer"></span>
+                        Сохранить
+                    </botton> -->
                     <input type="submit" value="Сохранить" class="btn btn-primary btn-md">
                 </div>
             </div>
@@ -174,7 +180,6 @@
 <script src="/static/furst/alerts.js"></script>        
 <script src="/static/furst/dialog.js"></script>
 <script src="/static/furst/form.js"></script>
-<script src="/static/furst/combo.js"></script>
 <script src="/static/furst/list.js"></script>
 <script src="/static/furst/toolbox.js"></script>
 <script src="/static/furst/mask.js"></script>

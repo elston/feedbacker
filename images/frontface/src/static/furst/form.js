@@ -71,7 +71,7 @@ Cls.Form = $.inherit($.util.Observable, {
         // ...
         App.Alerts.show(response.message);
         if (xhr.status == 400) {        
-            this.markErrField(response.params);
+            this.markErrField(response.data);
         };
     },   
 

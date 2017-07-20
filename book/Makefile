@@ -45,6 +45,14 @@ build_router:
 		build \
 		router		
 
+# target: build_all - build all image
+.PHONY: build_all
+build_all:
+	@echo "---> build frontface"
+	@make build_frontface
+	# ...
+	@echo "---> build router"
+	@make build_router
 
 # target:
 # target: ===== bootstrap === - ============================
@@ -60,6 +68,12 @@ bootstrap_frontface:
 		--rm \
 		frontface
 
+
+# target: bootstrap_all - bootstrap all image
+.PHONY: bootstrap_all
+bootstrap_all:
+	@echo "---> bootstrap frontface"
+	@make bootstrap_frontface
 
 # target:
 # target: ===== shell ======= - ============================

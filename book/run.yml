@@ -32,7 +32,7 @@ services:
       - ../images/frontface/src:/frontface
       - ../images/frontface/runserv.sh:/usr/local/bin/runserv.sh
     # .............................................        
-    command: /bin/bash
+    command: /usr/local/bin/runserv.sh
 
   # ..2. router
   router:
@@ -52,4 +52,4 @@ services:
       - ../images/router/nginx.conf:/router/deploy/nginx.conf
       - ../images/router/runserv.sh:/usr/local/bin/runserv.sh      
       - ../images/frontface/src:/frontface      
-    command: /bin/sh
+    command: /usr/local/bin/runserv.sh
