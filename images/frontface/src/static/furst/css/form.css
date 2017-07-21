@@ -6,9 +6,9 @@
     display: none;
     position: fixed;
     top: 5%;
-    left: 25%;
-    right: 25%;
-    width: 50%;
+    left: 30%;
+    right: 30%;
+    width: 40%;
     height: auto;
     background-color: #fff;
     overflow: auto;
@@ -103,7 +103,8 @@
 
 .form-body .submit-btn-group {
     text-align: right;
-    margin-top: 10px;    
+    margin-top: 15px;
+    margin-bottom: 5px;    
 }
 .form-body .submit-btn-group input{
     font-family: oswald-reg;

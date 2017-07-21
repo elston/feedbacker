@@ -60,9 +60,8 @@ class Model(object):
         # ..
         self._bind(record)
 
-
-    def _get_query(self, *args, **kwargs):
-        # ...
+    def _sql_where(self, *args, **kwargs):
+        # ..
         where = ' and '.join(["{key} = {value}".format(
                 key=key, value=getattr(self, key).to_sql(key)
             ) for key, value in  kwargs.items() if value])
@@ -72,6 +71,21 @@ class Model(object):
         # ...
         if where:
             where = 'WHERE ' + where
+        # ..
+        return where
+
+    def _get_query(self, *args, **kwargs):
+        # ...
+        # where = ' and '.join(["{key} = {value}".format(
+        #         key=key, value=getattr(self, key).to_sql(key)
+        #     ) for key, value in  kwargs.items() if value])
+        # # ..
+        # if where:
+        #     where = where.format(**kwargs)
+        # # ...
+        # if where:
+        #     where = 'WHERE ' + where
+        where = self._sql_where(*args, **kwargs)
         # ...
         query = u"SELECT * FROM %s %s;"%(
             self.__class__.__name__,
@@ -101,7 +115,7 @@ class Model(object):
     def get_or_none(self, dbpool, *args, **kwargs):
         # ...
         query = self._get_query(*args, **kwargs)
-        records = dbpool.runQuery(query)        
+        records = dbpool.runQuery(query)
         # ..
         if not len(records) <= 1:
             raise errors.DBError(
@@ -118,4 +132,34 @@ class Model(object):
         self._bind(record)
         # ..
         return self
+
+    def all(self, dbpool, *args, **kwargs):
+        # ..
+        # query = u"SELECT * FROM %s ORDER BY 'id';"%(
+        #     self.__class__.__name__,
+        # )
+
+        where = self._sql_where(*args, **kwargs)
+        # ...
+        query = u"SELECT * FROM %s %s ORDER BY 'id';"%(
+            self.__class__.__name__,
+            where
+        )        
+        # ...
+        cursor = dbpool.cursor()
+        cursor.execute(query)
+        records = cursor.fetchall()
+        # ...
+        return self.fetchlist(records)
+
+    def fetchrecord(self, fields, record):
+        result = {}
+        for index, item in fields:
+            name, _ = item
+            result[name] = record[index]
+        return result
+
+    def fetchlist(self, records):
+        fields = list(enumerate(self._fields()))
+        return [self.fetchrecord(fields,item) for item in records]
 

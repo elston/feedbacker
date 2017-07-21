@@ -9,7 +9,7 @@ class Region(models.Model):
     name = fields.String(length=255)
 
 
-class Sity(models.Model):
+class City(models.Model):
     # ..
     id = fields.Integer()
     name = fields.String(length=255)
@@ -21,7 +21,7 @@ class Feedback(models.Model):
     firstname = fields.String(length=30)
     lastname = fields.String(length=30)
     midname = fields.String(length=30)
-    sity_id = fields.Integer()
+    city_id = fields.Integer()
     phone = fields.String(length=30)
     email = fields.String(length=255)
     comment = fields.Text()
@@ -33,7 +33,7 @@ def executescript(dbpool, fname):
         query = query_file.read()
     # ..
     dbpool.executescript(query)
-    dbpool.commit()    
+    dbpool.commit()
 
 def init(app):
     # ..

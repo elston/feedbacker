@@ -26,7 +26,7 @@
     filter: alpha(opacity=50);
 }
 
-#shdowing-box-loader {
+.shdowing-box .shdowing-box-loader {
   position: absolute;
   left: 50%;
   top: 50%;

@@ -253,7 +253,7 @@ jQuery.inherit = function(){
 
 jQuery.util = jQuery.util || {};
 
-// ..
+// ..Event
 // ========================================
 jQuery.util.Event = function(obj, name){
     this.name = name;
@@ -353,7 +353,7 @@ jQuery.util.Event.prototype = {
     }
 };
 
-// ....
+// ....Observable
 // ========================================
 jQuery.util.Observable = function(){
 
@@ -459,7 +459,8 @@ jQuery.util.Observable.prototype = {
 jQuery.util.Observable.prototype.on = jQuery.util.Observable.prototype.addListener;
 jQuery.util.Observable.prototype.un = jQuery.util.Observable.prototype.removeListener;
 
-//jQuery.util.DelayedTask
+//DelayedTask
+// ========================================
 jQuery.util.DelayedTask = function(fn, scope, args){
     var me = this,
         id,     
@@ -485,10 +486,13 @@ jQuery.util.DelayedTask = function(fn, scope, args){
     };
 };
 
-/* jQuery.Rpc */
-// ========================================
+
+
+
 (function($){
- 
+
+    // Rpc
+    // ======================================== 
     $.Rpc = $.inherit(jQuery.util.Observable, {
         exceptions: {
             TRANSPORT: 'xhr',
@@ -582,7 +586,7 @@ jQuery.util.DelayedTask = function(fn, scope, args){
 
     $.Rpc.TID = 1;
     
-    //Transaction
+    //Rpc.Transaction
     // ====================================    
     $.Rpc.Transaction = function(config){
         $.extend(this, config);
@@ -606,7 +610,7 @@ jQuery.util.DelayedTask = function(fn, scope, args){
     };
     
 
-    //Event
+    //Rpc.Event
     // ====================================
     $.Rpc.Event = function(config){
         $.extend(this, config);
@@ -643,7 +647,7 @@ jQuery.util.DelayedTask = function(fn, scope, args){
     };
     
 
-    //Provider
+    //Rpc.Provider
     // ====================================    
     $.Rpc.Provider = $.inherit($.util.Observable, {    
         

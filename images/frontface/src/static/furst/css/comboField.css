@@ -7,9 +7,19 @@
 .form-body .form-group ul.dropdown-menu{
     top: 34px; 
     left: 0px; 
+    display: block;
+} 
+.form-body .form-group ul.dropdown-menu-display-none{
     display: none;
 } 
 
 .form-body .form-group ul.dropdown-menu li .loading-label {
     padding-left: 5px;
+} 
+
+
+
+.form-body .form-group ul.dropdown-menu li.dropdown-menu-item:hover {
+    background: rgba(150,150,150,0.5);
+    cursor: pointer;    
 } 

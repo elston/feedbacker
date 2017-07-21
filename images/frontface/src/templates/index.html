@@ -25,7 +25,7 @@
 <link href="/static/furst/css/list.css"             rel="stylesheet" type="text/css">        
 <link href="/static/furst/css/dialog.css"           rel="stylesheet" type="text/css">
 <link href="/static/furst/css/form.css"             rel="stylesheet" type="text/css">
-<link href="/static/furst/css/combo.css"            rel="stylesheet" type="text/css">
+<link href="/static/furst/css/comboField.css"       rel="stylesheet" type="text/css">
 
 <!--  -->
 </head><body>
@@ -74,15 +74,15 @@
     </div>
 
     <!-- list -->
-    <div id="feedback-list" class="list-box">
-        <div id="empty-feedback-list" class="empty-list-box"> 
+    <div id="feedback-list__elem" class="list-box">
+<!--         <div id="empty-feedback-list" class="empty-list-box"> 
             There are no any records
-        </div>
+        </div> -->
     </div>        
 
     <!-- mask -->
-    <div id="content-mask" class="shdowing-box">
-        <div id="shdowing-box-loader"></div>
+    <div id="feedback-list__mask" class="shdowing-box">
+        <div class="shdowing-box-loader"></div>
     </div>
 
 </div>
@@ -109,7 +109,8 @@
     <div>
         <form id="feedback-form" method="post">
             <div class="col-lg-12 col-md-12 col-sm-12 form-body">
-                <!-- .. -->
+
+                <!-- ..Фамилия -->
                 <div class="form-group">
                     <label for="id_lastname" class="control-label">Фамилия</label>
                     <div class="row">
@@ -118,6 +119,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- ..Имя -->
                 <div class="form-group">
                     <label for="id_firstname" class="control-label">Имя</label>
                     <div class="row">
@@ -126,6 +129,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- ..Отчество -->
                 <div class="form-group">
                     <label for="id_midname" class="control-label">Отчество</label>
                     <div class="row">
@@ -134,26 +139,63 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- ..Регион . -->
                 <div class="form-group">
-                    <label for="id_region" class="control-label">Регион</label>
+                    <label class="control-label">Регион</label>
                     <div class="row">
                         <div class="col-xs-10">
-                            <div id="field-region__el" class="input-group">
-                                <input id="field-region__field" type="text" autocomplete="off" placeholder="Choose a region" class="form-control" name="region" id="id_region">
-                                <ul id="field-region__menu" class="typeahead typeahead-long dropdown-menu">
-                                    <li data-value="">
-                                        &nbsp;
-                                        <span class="fa fa-spinner fa-spin fa-fw"></span>
-                                        <span class="loading-label">Loading...</span>
-                                    </li>
-                                </ul>
-                                <span id="field-region__botton" class="input-group-addon dropdown-toggle" data-dropdown="dropdown"> 
-                                    <span class="caret"></span>
-                                </span>
+                            <div id="field-region__elem" class="input-group">
+                                <input id="field-region__field_id" type="hidden" name="region_id">
+                                <input id="field-region__field" type="text" name="region" autocomplete="off" placeholder="Выберете регион" class="form-control">
+                                <ul id="field-region__menu" class="typeahead typeahead-long dropdown-menu dropdown-menu-display-none"></ul>
+                                <span id="field-region__botton" class="input-group-addon dropdown-toggle" data-dropdown="dropdown"><span class="caret"></span></span>
                             </div>
                         </div>
                     </div>
-                </div>                
+                </div>
+
+                <!-- ..Город . -->
+                <div class="form-group">
+                    <label class="control-label">Город</label>
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <div id="field-city__elem" class="input-group">
+                                <input id="field-city__field_id" type="hidden" name="city_id">
+                                <input id="field-city__field" type="text" name="city" autocomplete="off" placeholder="Выберете город" class="form-control">
+                                <ul id="field-city__menu" class="typeahead typeahead-long dropdown-menu dropdown-menu-display-none"></ul>
+                                <span id="field-city__botton" class="input-group-addon dropdown-toggle" data-dropdown="dropdown"><span class="caret"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ..Контактный телефон -->
+                <div class="form-group">
+                    <label class="control-label">Контактный телефон</label>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <input type="text" name="phone" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- ..Email -->
+                <div class="form-group">
+                    <label class="control-label">Email</label>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <input type="text" name="email" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ..Комментарий -->
+                <div class="form-group">                
+                    <label for="id_text">Комментарий</label>
+                    <textarea type="text" name="comment" rows="5" class="form-control"></textarea>
+                </div>
 
                 <!-- ... -->
                 <div class="form-group submit-btn-group">
@@ -174,13 +216,15 @@
 <script src="/static/furst/alerts.js"></script>        
 <script src="/static/furst/dialog.js"></script>
 <script src="/static/furst/form.js"></script>
-<script src="/static/furst/combo.js"></script>
+<script src="/static/furst/comboField.js"></script>
 <script src="/static/furst/list.js"></script>
 <script src="/static/furst/toolbox.js"></script>
 <script src="/static/furst/mask.js"></script>
 <!-- ... -->
 <script src="/methods"></script>       
-<script src="/static/feedback/app.js"></script>      
-
+<script src="/static/feedback/Form.js"></script>
+<script src="/static/feedback/Fields.js"></script>
+<!-- ... -->
+<script src="/static/feedback/App.js"></script>
 <!--  -->
 </body>

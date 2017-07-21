@@ -1,7 +1,7 @@
 $.ns('Cls.Toolbox');
 Cls.Toolbox = $.inherit($.util.Observable, {
     // ..
-    toolbox_id:'',
+    elem_id:'',
     form:null,
     list:null,
     // ...
@@ -15,8 +15,8 @@ Cls.Toolbox = $.inherit($.util.Observable, {
         // ...
         $.extend(this, config);
         // ...
-        this.btnCreate = $("#"+this.toolbox_id+"__"+this.btn_create_id);
-        this.btnRemove = $("#"+this.toolbox_id+"__"+this.btn_remove_id);
+        this.btnCreate = $("#"+this.elem_id+"__"+this.btn_create_id);
+        this.btnRemove = $("#"+this.elem_id+"__"+this.btn_remove_id);
 
         // ..
         Cls.Toolbox.superclass.constructor.call(this, config);

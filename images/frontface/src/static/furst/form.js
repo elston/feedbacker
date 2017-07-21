@@ -1,10 +1,10 @@
 $.ns('Cls.Form');
 Cls.Form = $.inherit($.util.Observable, {
     // ...
-    form_id:null,
+    elem_id:null,
     action:$.noop,
     templErrField: new Cls.Template('\
-        <div class="error" style="color: red;">\
+        <div class="error" style="color: #a94442;">\
             {{error}} \
         </div>\
     '),
@@ -14,10 +14,10 @@ Cls.Form = $.inherit($.util.Observable, {
         $.extend(this, config);
 
         // ...
-        this.form_el        = $("#"+this.form_id);
+        this.form_el        = $("#"+this.elem_id);
         this.shdowing_el    = $("#shdowing");
-        this.box_el         = $('#'+this.form_id+'__box');
-        this.btnClose       = $('#'+this.form_id+'__close-btn');
+        this.box_el         = $('#'+this.elem_id+'__box');
+        this.btnClose       = $('#'+this.elem_id+'__close-btn');
 
         // ..
         Cls.Form.superclass.constructor.call(this, config);
@@ -33,7 +33,7 @@ Cls.Form = $.inherit($.util.Observable, {
     },
 
     close: function (e){
-        var me = this;                    
+        var me = this;
         if ((e)&&(e.data)){
             me = e.data;
         };
@@ -41,9 +41,12 @@ Cls.Form = $.inherit($.util.Observable, {
         me.shdowing_el.css('display','none');
         me.box_el.css('display','none');
         // ...
-        me.removeErrLabel().reset();        
+        me.removeErrLabel();
+        me.reset();        
     },
 
+    // ..submit
+    // ===================
     submit:function (e) {
         var me = e.data;
         var data = me.form_el.serialize();        
@@ -55,13 +58,14 @@ Cls.Form = $.inherit($.util.Observable, {
 
     reset:function () {
         this.form_el[0].reset();
-        return this;
     },
 
     success:function (result,provider) {
         // ...
         App.Alerts.show(result.message,'success');
-        this.reset().close();
+        this.appendRecordToList(result.record);
+        this.reset();
+        this.close();
     },
 
     error:function (result, request) {
@@ -76,20 +80,27 @@ Cls.Form = $.inherit($.util.Observable, {
     },   
 
     markErrField:function (param) {
+        // ..
         for (var k in param) {
-            this.form_el
-                .find('input[name=' + k + ']')
-                .before(this.templErrField.compile({
-                    error:param[k]
-                }));
+            // ..
+            var el = this.form_el.find('input[name=' + k + ']')
+            var fgroup = el.parent().parent().parent();
+            fgroup.addClass('has-error');
+            fgroup.after(this.templErrField.compile({
+                error:param[k]
+            }));            
         }; 
     },  
 
     removeErrLabel:function (argument) {
-        this.form_el
-            .find('.error')
-            .remove();
-        return this;
+        this.form_el.find('.error').remove();
+        this.form_el.find('.has-error').removeClass('has-error');
+    },
+
+    appendRecordToList:function(record) {
+        // ...
+        var list  = App[this.list_name];
+        list.appendRecord(record);
     },
 });
 
