@@ -94,10 +94,12 @@ class Model(object):
         # ..
         return query
 
-    def get(self, dbpool, *args, **kwargs):
+    def get(self, *args, **kwargs):
         # ...
         query = self._get_query(*args, **kwargs)
-        records = dbpool.runQuery(query)        
+        self._txn.execute(query)
+        records = self._txn.fetchall()
+        records = self.fetchlist(records)
         # ..
         if not len(records) == 1:
             raise errors.DBError(
@@ -163,3 +165,14 @@ class Model(object):
         fields = list(enumerate(self._fields()))
         return [self.fetchrecord(fields,item) for item in records]
 
+
+    def remove(self, *args, **kwargs):
+        # ...
+        where = self._sql_where(*args, **kwargs)
+        # ...
+        query = u"DELETE FROM %s %s;"%(
+            self.__class__.__name__,
+            where
+        )
+
+        self._txn.execute(query)        

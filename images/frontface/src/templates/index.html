@@ -10,10 +10,12 @@
 
 <!-- favicon -->
 <link href="/static/favicon.ico" rel="icon" type="image/png"/>
+
 <!-- stylesheet -->
 <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="/static/awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<!-- .... -->
+
+<!-- ..furst.. -->
 <link href="/static/furst/css/base.css"             rel="stylesheet" type="text/css">       
 <link href="/static/furst/css/message.css"          rel="stylesheet" type="text/css">   
 <link href="/static/furst/css/sidebar.css"          rel="stylesheet" type="text/css">
@@ -22,10 +24,13 @@
 <link href="/static/furst/css/shdowing.css"         rel="stylesheet" type="text/css">
 <!-- ... -->
 <link href="/static/furst/css/toolbox.css"          rel="stylesheet" type="text/css">    
-<link href="/static/furst/css/list.css"             rel="stylesheet" type="text/css">        
+<link href="/static/furst/css/grid.css"             rel="stylesheet" type="text/css">        
 <link href="/static/furst/css/dialog.css"           rel="stylesheet" type="text/css">
 <link href="/static/furst/css/form.css"             rel="stylesheet" type="text/css">
 <link href="/static/furst/css/comboField.css"       rel="stylesheet" type="text/css">
+
+<!-- ..feedback.. -->
+<!-- <link href="/static/feedback/css/list.css"       rel="stylesheet" type="text/css"> -->
 
 <!--  -->
 </head><body>
@@ -51,7 +56,7 @@
             <a href="#">Отзывы</a>
         </li>
         <li>
-            <a href="/report">Отчет</a>
+            <a target="_blank" href="/stat">Отчет</a>
         </li>
     </ul>
 </div>
@@ -66,22 +71,29 @@
             Добавить
         </button>
         &nbsp;
-        <button id="feedback-toolbox__remove-btn" type="button" class="btn btn-danger disabled">
+        <button id="feedback-toolbox__remove-btn" type="button" class="btn btn-danger">
             <span class="fa fa-minus __iconspacer"></span>
             Удалить
         </button>
         &nbsp;        
     </div>
 
-    <!-- list -->
-    <div id="feedback-list__elem" class="list-box">
-<!--         <div id="empty-feedback-list" class="empty-list-box"> 
-            There are no any records
-        </div> -->
-    </div>        
+    <!-- grid -->
+    <!-- <div id="feedback-list__elem" class="list-group list-box"></div>         -->
+    <table id="feedback-grid__elem" class="table grid-box">
+    <thead><tr>
+        <th class="col-md-1">№</th>
+        <th class="col-md-3">Ф.И.О.</th>
+        <th class="col-md-2">Телефон</th>
+        <th class="col-md-2">Email</th>
+        <th class="col-md-4">Комментарий</th>
+        </tr>
+    </thead>
+    <tbody id="feedback-grid__body" class="grid-body"></tbody>
+    </table>
 
     <!-- mask -->
-    <div id="feedback-list__mask" class="shdowing-box">
+    <div id="feedback-grid__mask" class="shdowing-box">
         <div class="shdowing-box-loader"></div>
     </div>
 
@@ -93,9 +105,9 @@
 </div>  
 
 <!-- hidden -->
-<!-- .. -->
+<!-- mask -->
 <div id="shdowing" class="shdowing"></div>
-<!-- ... -->
+<!-- create form -->
 <div id="feedback-form__box" class="panel panel-primary form-box">
     <div id="feedback-form__title" class="form-title">
         <!-- <p id="create-feedback-form__heading" class="form-heading"></p> -->
@@ -217,13 +229,14 @@
 <script src="/static/furst/dialog.js"></script>
 <script src="/static/furst/form.js"></script>
 <script src="/static/furst/comboField.js"></script>
-<script src="/static/furst/list.js"></script>
+<script src="/static/furst/Grid.js"></script>
 <script src="/static/furst/toolbox.js"></script>
 <script src="/static/furst/mask.js"></script>
 <!-- ... -->
 <script src="/methods"></script>       
 <script src="/static/feedback/Form.js"></script>
 <script src="/static/feedback/Fields.js"></script>
+<script src="/static/feedback/Grid.js"></script>
 <!-- ... -->
 <script src="/static/feedback/App.js"></script>
 <!--  -->

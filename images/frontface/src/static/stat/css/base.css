@@ -1,0 +1,53 @@
+html {
+    font-family: "Times New Roman", Times, serif;
+    font-size:12pt;
+    margin-right:1cm;
+}
+
+body {
+    width:21cm;
+}
+
+/*
+* pargraf
+*/
+p {
+    text-indent: 2em; 
+    margin: 0em;
+    text-align: justify;
+}
+
+/*
+* no-ident
+*/
+p.no-ident {
+    text-indent: 0em;   
+}
+
+/*
+* head-two
+*/
+.head {
+    text-align:center;
+    padding: 2em 0em 1em 0em;
+}
+
+/*
+* content
+*/
+
+table.content {
+    width:100%;
+    border-collapse: collapse;     
+}
+table.content th {
+    background-color:white;
+}
+table.content td, table.content th  {
+    border:1px solid;
+    padding:3px;
+    font-size:10pt;
+}
+
+
+

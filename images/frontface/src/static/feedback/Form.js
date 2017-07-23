@@ -10,6 +10,7 @@ Cls.FeedbackForm = $.inherit(Cls.Form, {
         };
         // ..
         me.region_field.hideMenu();
+        me.city_field.hideMenu();        
         // ..
         Cls.FeedbackForm.superclass.close.call(this, e);
     },
@@ -18,6 +19,7 @@ Cls.FeedbackForm = $.inherit(Cls.Form, {
         Cls.FeedbackForm.superclass.reset.call(this);
         // ..
         this.region_field.field_id.removeAttr('value');
+        this.city_field.field_id.removeAttr('value');        
     },
 
 })

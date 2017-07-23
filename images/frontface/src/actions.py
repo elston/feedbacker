@@ -9,7 +9,7 @@ from models import Feedback
 class FeedbackActions(object):
 
     def read(self, data, app):
-
+        # ...
         query = """
         SELECT 
             Feedback.id as feedback_id,
@@ -35,15 +35,15 @@ class FeedbackActions(object):
         records = [{
             'feedback_id':          item[0],
             'feedback_firstname':   item[1],
-            'feedback_lastname':    item[2],
-            'feedback_midname':     item[3],
-            'feedback_phone':       item[4],
-            'feedback_email':       item[5],
+            'feedback_lastname':    item[2] or '',
+            'feedback_midname':     item[3] or '',
+            'feedback_phone':       item[4] or '',
+            'feedback_email':       item[5] or '',
             'feedback_comment':     item[6],
-            'city_id':              item[7],
-            'city_name':            item[8],
-            'region_id':            item[9],
-            'region_name':          item[10],
+            'city_id':              item[7] or '',
+            'city_name':            item[8] or '',
+            'region_id':            item[9] or '',
+            'region_name':          item[10] or '',
         } for item in records]
         # ..
         return {
@@ -80,15 +80,43 @@ class FeedbackActions(object):
             feedback = Feedback(cursor, **record)
             feedback.create()
             feedback = feedback.as_dict()
+            record = {
+                'feedback_id':feedback['id'],
+                'feedback_firstname':feedback['firstname'],
+                'feedback_lastname':feedback['lastname'],
+                'feedback_midname':feedback.get('midname', ''),
+                'feedback_phone':feedback.get('phone',''),
+                'feedback_email':feedback.get('email',''),
+                'feedback_comment':feedback['comment'],
+                'city_id':feedback.get('city_id',''),
+                'city_name':record.get('city',''),
+                'region_id':record.get('region_id',''),
+                'region_name':record.get('region',''),
+            }
         except Exception as e:
             raise e
         app.dbpool.commit()
         # ..
         return {
-            'message':'Feedback created successfully',
-            'record':feedback,
+            'message':'Комментарий успешно создан',
+            'record': record,
         }
 
+    def remove(self, data, app):
+        # ..
+        record_id = int(data[0])
+        # ..
+        cursor = app.dbpool.cursor()
+        try:
+            feedback = Feedback(cursor)
+            feedback.remove(id=record_id)
+        except Exception as e:
+            raise e
+        app.dbpool.commit()
+
+        return {
+            'message':'Коментарий успешно удален',
+        }        
 
 # Region
 from models import Region

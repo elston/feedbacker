@@ -6,6 +6,8 @@ urls = {
     (r'^$', views.index),
     (r'^methods$', router.methods),
     (r'^api$', router.api),
+    (r'^stat$', views.stat),
+    (r'^stat/region/(?P<region_id>\d+)$', views.stat_region),    
 }
 
 # .

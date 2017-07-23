@@ -3,7 +3,7 @@ Cls.Toolbox = $.inherit($.util.Observable, {
     // ..
     elem_id:'',
     form:null,
-    list:null,
+    grid:null,
     // ...
     btn_create_id:'create-btn',
     btn_remove_id:'remove-btn',    
@@ -17,7 +17,9 @@ Cls.Toolbox = $.inherit($.util.Observable, {
         // ...
         this.btnCreate = $("#"+this.elem_id+"__"+this.btn_create_id);
         this.btnRemove = $("#"+this.elem_id+"__"+this.btn_remove_id);
-
+        // ..
+        this.form  = App[this.form_name];
+        this.grid  = App[this.grid_name];        
         // ..
         Cls.Toolbox.superclass.constructor.call(this, config);
         // ..
@@ -28,21 +30,15 @@ Cls.Toolbox = $.inherit($.util.Observable, {
     create:function (e) {
         // ...
         var me = e.data;
-        // ...
         e.preventDefault();
         me.form.open();
     },
 
     remove:function (e) {
-        var me  = e.data;
-        if (me.list){
-            var currentrecord = me.list.getCurrentRecord();
-            if (currentrecord){
-                console.log(currentrecord.attr('data-id'));
-            };
-        }else{
-            App.Alerts.show('No records','danger');
-        };
+        // ..
+        var me = e.data;
+        e.preventDefault();        
+        me.grid.removeRecord()
     },
 
 });

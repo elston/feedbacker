@@ -1,0 +1,48 @@
+/*
+*   wrapper
+*/
+.grid-box {
+    
+    /*decoration*/
+    /*background: #fff;*/
+
+    /*position*/
+    /*width: 100%;*/
+    /*z-index: 3;    */
+
+}
+
+
+/*
+*   body
+*/
+
+.grid-body {
+    overflow-y: auto;    
+}
+
+.grid-body tr {
+    cursor: pointer;
+}
+
+.grid-body tr:hover {
+    background-color: #ddd;
+}
+
+.grid-body td{
+    vertical-align: middle !important ;
+}
+
+.grid-body td p{
+    margin: 0; 
+}
+
+/*
+*   empty body
+*/
+tr.empty-row {
+    cursor: auto !important ;   
+}
+.grid-body tr.empty-row:hover {
+    background-color: inherit !important;
+}

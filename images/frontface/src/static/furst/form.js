@@ -2,7 +2,7 @@ $.ns('Cls.Form');
 Cls.Form = $.inherit($.util.Observable, {
     // ...
     elem_id:null,
-    action:$.noop,
+    action_create:$.noop,
     templErrField: new Cls.Template('\
         <div class="error" style="color: #a94442;">\
             {{error}} \
@@ -16,9 +16,8 @@ Cls.Form = $.inherit($.util.Observable, {
         // ...
         this.form_el        = $("#"+this.elem_id);
         this.shdowing_el    = $("#shdowing");
-        this.box_el         = $('#'+this.elem_id+'__box');
-        this.btnClose       = $('#'+this.elem_id+'__close-btn');
-
+        this.box_el         = $('#'+this.elem_id+'__'+'box');
+        this.btnClose       = $('#'+this.elem_id+'__'+'close-btn');
         // ..
         Cls.Form.superclass.constructor.call(this, config);
         // ..
@@ -48,11 +47,13 @@ Cls.Form = $.inherit($.util.Observable, {
     // ..submit
     // ===================
     submit:function (e) {
+        // ..
+        e.preventDefault();        
         var me = e.data;
         var data = me.form_el.serialize();        
         // ..
         me.removeErrLabel();
-        me.action(data, me.success, me.error, me);
+        me.action_create(data, me.success, me.error, me);
         return false;
     },
 
@@ -99,8 +100,8 @@ Cls.Form = $.inherit($.util.Observable, {
 
     appendRecordToList:function(record) {
         // ...
-        var list  = App[this.list_name];
-        list.appendRecord(record);
+        var grid  = App[this.grid_name];        
+        grid.appendRecord(record);
     },
 });
 

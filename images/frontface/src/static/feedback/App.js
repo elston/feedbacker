@@ -22,25 +22,27 @@ $(function($){
     $.ns('App.FeedbackForm');
     App.FeedbackForm = new Cls.FeedbackForm({
         elem_id:'feedback-form',
-        action:FeedbackActions.create,
-        list_name:'FeedbackList',
+        action_create:FeedbackActions.create,
+        grid_name:'FeedbackGrid',
         // ..
         region_field:App.RegionComboField,
+        city_field:App.CityComboField,        
     });
    
     // ..
-    $.ns('App.FeedbackList');
-    App.FeedbackList = new Cls.List({
-        elem_id:'feedback-list',
-        action:FeedbackActions.read,        
+    $.ns('App.FeedbackGrid');
+    App.FeedbackGrid = new Cls.FeedbackGrid({
+        elem_id:'feedback-grid',
+        action_read:FeedbackActions.read,
+        action_remove:FeedbackActions.remove,
     });    
 
     // ..
     $.ns('App.FeedbackToolbox');
     App.FeedbackToolbox = new Cls.Toolbox({
         elem_id:'feedback-toolbox',
-        form:App.FeedbackForm,
-        list:App.FeedbackList,
+        form_name:'FeedbackForm',
+        grid_name:'FeedbackGrid',
     });
 
  
