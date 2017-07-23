@@ -97,7 +97,7 @@ shell_frontface:
 shell_router:
 	@docker-compose \
 		-p $(PROJECT) \
-		-f run.yml \
+		-f shell.yml \
 		run \
 		--rm \
 		--service-ports \
@@ -109,6 +109,14 @@ shell_router:
 
 # target:
 # target: ===== misc ======== - ============================
+
+# target: down - run all contaner in project
+.PHONY: up
+up:
+	@docker-compose \
+		-p $(PROJECT) \
+		-f run.yml \
+		up
 
 # target: down - shutdown all contaner in project
 .PHONY: down

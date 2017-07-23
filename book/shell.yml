@@ -1,0 +1,26 @@
+version: '3'
+
+# ---------------------
+networks:
+
+  # 1. netmain
+  netmain:
+    driver: bridge
+
+services:
+  router:
+    image: ${PROJECT}_router
+    tty: true    
+    expose:
+      - "80"    
+    ports:
+      - "80:80"
+    networks:
+      - netmain    
+    external_links:
+      - ${PROJECT}_frontface_1:frontface
+    volumes:
+      - ../images/router/nginx.conf:/router/deploy/nginx.conf
+      - ../images/router/runserv.sh:/usr/local/bin/runserv.sh      
+      - ../images/frontface/src:/frontface      
+    command: /usr/local/bin/runserv.sh    

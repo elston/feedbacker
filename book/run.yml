@@ -44,10 +44,8 @@ services:
       - "80:80"
     networks:
       - netmain    
-    # depends_on:
-    #   - frontface      
-    external_links:
-      - ${PROJECT}_frontface_1:frontface
+    depends_on:
+      - frontface      
     volumes:
       - ../images/router/nginx.conf:/router/deploy/nginx.conf
       - ../images/router/runserv.sh:/usr/local/bin/runserv.sh      

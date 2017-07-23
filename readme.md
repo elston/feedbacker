@@ -3,9 +3,9 @@ FeedBacker
 
 Thunder inc. test task :))
 
-Framework without frameworks!!!! .. ;) .. it looks mysterious... isn't it? :)
+Framework without frameworks!!!! .. ;) .. 
 
-Pure python and javascript! .. feckly ))
+Pure python and javascript .. 
 
 Technology
 ----------------
@@ -38,6 +38,15 @@ http://docs.docker.com/compose/install/
 In the project ./book/dev/ (where the `Makefile` file is located), run:
 
 ```
-make build_all
+make build_all && make bootstrap_all && make up
 ```
 
+### Open browser in 
+
+http://localhost
+
+
+
+Some screenshots...
+--------------------------------------------------------------------
+![Right Pane](https://raw.github.com/elston/gedit-rightpane-plugin/gedit3.10.4/01.png "Right Pane")
