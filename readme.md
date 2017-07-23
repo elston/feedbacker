@@ -49,4 +49,5 @@ http://localhost
 
 Some screenshots...
 --------------------------------------------------------------------
-![001](https://raw.github.com/elston/feedbacker/screenshots/gedit3.10.4/001.png "001")
+![001](https://raw.github.com/elston/feedbacker/master/screenshots/001.png "001")
+
