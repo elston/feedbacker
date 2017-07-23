@@ -49,4 +49,4 @@ http://localhost
 
 Some screenshots...
 --------------------------------------------------------------------
-![Right Pane](https://raw.github.com/elston/gedit-rightpane-plugin/gedit3.10.4/01.png "Right Pane")
+![001](https://raw.github.com/elston/feedbacker/screenshots/gedit3.10.4/001.png "001")
