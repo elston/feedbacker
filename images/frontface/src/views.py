@@ -32,7 +32,7 @@ def stat(app, environ, start_response):
         JOIN Region ON Region.id = City.region_id
     GROUP BY
         Region.id
-    -- HAVING count(*) > 5
+    HAVING count(*) > 5
     ORDER BY count(*) ASC    
     """
     cursor = app.dbpool.cursor()
