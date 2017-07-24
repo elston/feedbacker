@@ -1,11 +1,7 @@
 FeedBacker
 ========================
 
-Thunder inc. test task :))
-
-Framework without frameworks!!!! .. ;) .. 
-
-Pure python and javascript .. 
+Thunder inc. test task, details under the [link](https://github.com/elston/feedbacker/blob/master/tz.rst)
 
 Technology
 ----------------
